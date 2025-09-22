@@ -74,8 +74,8 @@ async fn main() {
     }
     let url = format!("http://{}:{}/?token={}", ip, port, token);
     let code = QrCode::new(url.as_bytes()).unwrap();
-    let string = code.render::<unicode::Dense1x2>().dark_color(unicode::Dense1x2::Light)
-        .light_color(unicode::Dense1x2::Dark).build();
+    // let string = code.render::<unicode::Dense1x2>().dark_color(unicode::Dense1x2::Light).light_color(unicode::Dense1x2::Dark).build();
+    let string = code.render::<unicode::Dense1x2>().build();
     println!("📡 扫描二维码上传文件到此设备:\n{}", string);
     println!("或者直接访问: {}", url);
     println!("文件将保存到: {:?}", upload_dir);
